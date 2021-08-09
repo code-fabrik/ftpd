@@ -3,10 +3,13 @@ PATH
   specs:
     ftpd (2.1.0)
       memoizer (~> 1.0)
+      octokit (= 4.21.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     builder (3.2.3)
     cucumber (2.4.0)
       builder (>= 2.1.2)
@@ -21,10 +24,34 @@ GEM
     cucumber-wire (0.0.1)
     diff-lcs (1.3)
     double-bag-ftps (0.1.4)
+    faraday (1.7.0)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
+      faraday-excon (~> 1.1)
+      faraday-httpclient (~> 1.0.1)
+      faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.1)
+      faraday-patron (~> 1.0)
+      faraday-rack (~> 1.0)
+      multipart-post (>= 1.2, < 3)
+      ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
+    faraday-excon (1.1.0)
+    faraday-httpclient (1.0.1)
+    faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.2.0)
+    faraday-patron (1.0.0)
+    faraday-rack (1.0.0)
     gherkin (4.1.3)
     memoizer (1.0.3)
     multi_json (1.12.1)
     multi_test (0.1.2)
+    multipart-post (2.1.1)
+    octokit (4.21.0)
+      faraday (>= 0.9)
+      sawyer (~> 0.8.0, >= 0.5.3)
+    public_suffix (4.0.6)
     rake (11.3.0)
     redcarpet (3.4.0)
     rspec (3.6.0)
@@ -43,6 +70,10 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
+    ruby2_keywords (0.0.5)
+    sawyer (0.8.2)
+      addressable (>= 2.3.5)
+      faraday (> 0.8, < 2.0)
     timecop (0.9.1)
     yard (0.8.7.6)
 
@@ -60,5 +91,8 @@ DEPENDENCIES
   timecop (~> 0.7)
   yard (~> 0.8.7)
 
+RUBY VERSION
+   ruby 3.0.1p64
+
 BUNDLED WITH
-   1.15.3
+   2.2.15

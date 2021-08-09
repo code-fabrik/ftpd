@@ -8,9 +8,9 @@ require 'ftpd'
 require 'tmpdir'
 
 class Driver
-
-  def initialize(temp_dir)
-    @temp_dir = temp_dir
+  def initialize(token, repo)
+    @token = token
+    @repo = repo
   end
 
   def authenticate(user, password)
@@ -18,15 +18,15 @@ class Driver
   end
 
   def file_system(user)
-    Ftpd::DiskFileSystem.new(@temp_dir)
+    Ftpd::GithubFileSystem.new(@token, @repo)
   end
 
 end
 
-Dir.mktmpdir do |temp_dir|
-  driver = Driver.new(temp_dir)
-  server = Ftpd::FtpServer.new(driver)
-  server.start
-  puts "Server listening on port #{server.bound_port}"
-  gets
-end
+# Get a token from https://github.com/settings/tokens
+driver = Driver.new('my_access_token', 'lukasskywalker/test')
+server = Ftpd::FtpServer.new(driver)
+server.port = ENV['PORT']
+server.start
+puts "Server listening on port #{server.bound_port}"
+gets
