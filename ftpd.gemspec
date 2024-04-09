@@ -81,6 +81,7 @@ Gem::Specification.new do |s|
   s.summary = "Pure Ruby FTP server library"
   s.add_runtime_dependency("memoizer", "~> 1.0")
   s.add_runtime_dependency("octokit", "4.21.0")
+  s.add_runtime_dependency("httpx", "1.2.3")
   s.add_development_dependency("cucumber", "~> 2.0")
   s.add_development_dependency("double-bag-ftps", "~> 0.1", ">= 0.1.4")
   s.add_development_dependency("rake", "~> 11.1")

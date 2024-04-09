@@ -8,9 +8,8 @@ require 'ftpd'
 require 'tmpdir'
 
 class Driver
-  def initialize(token, repo)
-    @token = token
-    @repo = repo
+  def initialize(origin)
+    @origin = origin
   end
 
   def authenticate(user, password)
@@ -18,13 +17,12 @@ class Driver
   end
 
   def file_system(user)
-    Ftpd::GithubFileSystem.new(@token, @repo)
+    Ftpd::RestFileSystem.new(@origin)
   end
 
 end
 
-# Get a token from https://github.com/settings/tokens
-driver = Driver.new('my_access_token', 'lukasskywalker/test')
+driver = Driver.new('http://localhost:3000')
 server = Ftpd::FtpServer.new(driver)
 server.port = ENV['PORT']
 server.start
