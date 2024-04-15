@@ -22,9 +22,9 @@ class Driver
 
 end
 
-driver = Driver.new('http://localhost:3000')
+driver = Driver.new('https://feef-31-164-110-100.ngrok-free.app/')
 server = Ftpd::FtpServer.new(driver)
-server.port = ENV['PORT']
+server.port = 41239
 server.start
 puts "Server listening on port #{server.bound_port}"
 gets
